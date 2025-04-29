@@ -1,15 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies</title>
-    <link rel="stylesheet" href="./styles/app.css">
+  <!-- Metadatos básicos del documento -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Preconexión y carga de fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Red+Hat+Display:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <!-- Enlace a la hoja de estilos CSS -->
+  <link rel="stylesheet" href="./styles/app.css" />
+
+  <!-- Título de la página -->
+  <title>Movies</title>
 </head>
 <body>
-    <h1>Movies</h1>
-    <script src="./src/secret.js"></script>
-    <script src="./src/main.js"></script>
-    jjjjjjjj
+  <!-- Cabecera principal del sitio -->
+  <header id="header" class="header-container">
+    <!-- Flecha de navegación (inactiva por defecto) -->
+    <span class="header-arrow inactive">&lt;</span>
+    
+    <!-- Título principal -->
+    <h1 class="header-title">Movies</h1>
+    
+    <!-- Título para vista de categoría (inactivo por defecto) -->
+    <h1 class="header-title header-title--categoryView inactive">Acción</h1>
+
+    <!-- Formulario de búsqueda -->
+    <form id="searchForm" class="header-searchForm">
+      <input type="text" placeholder="Vengadores" />
+      <button>🔍</button>
+    </form>
+  </header>
+
+  <!-- Sección de películas trending -->
+  <section id="trendingPreview" class="trendingPreview-container">
+    <div class="trendingPreview-header">
+      <h2 class="trendingPreview-title">Tendencias</h2>
+      <button class="trendingPreview-btn">Ver más</button>
+    </div>
+
+    <!-- Listado de películas trending -->
+    <article class="trendingPreview-movieList">
+      <!-- Contenedores de películas (3 ejemplos con misma imagen) -->
+      <!-- <div class="movie-container">
+        <img
+          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        />
+      </div> -->
+
+      <!-- <div class="movie-container">
+        <img
+          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        />
+      </div> -->
+
+      <!-- <div class="movie-container">
+        <img
+          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        />
+      </div> -->
+    </article>
+  </section>
+
+  <!-- Sección de categorías -->
+  <section id="categoriesPreview" class="categoriesPreview-container">
+    <h2 class="categoriesPreview-title">Categorías</h2>
+
+    <!-- Listado de categorías -->
+    <article class="categoriesPreview-list">
+      <div class="category-container">
+        <h3 id="id28" class="category-title">Romance</h3>
+      </div>
+
+      <div class="category-container">
+        <h3 id="id16" class="category-title">Drama</h3>
+      </div>
+
+      <div class="category-container">
+        <h3 id="id14" class="category-title">Acción</h3>
+      </div>
+    </article>
+  </section>
+
+  <!-- Sección genérica para listados (inactiva por defecto) -->
+  <section id="genericList" class="genericList-container inactive">
+    <!-- Contenedores de películas genéricas (3 ejemplos con misma imagen) -->
+    <div class="movie-container">
+      <img
+        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+        class="movie-img"
+        alt="Nombre de la película"
+      />
+    </div>
+
+    <div class="movie-container">
+      <img
+        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+        class="movie-img"
+        alt="Nombre de la película"
+      />
+    </div>
+
+    <div class="movie-container">
+      <img
+        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+        class="movie-img"
+        alt="Nombre de la película"
+      />
+    </div>
+  </section>
+
+  <!-- Sección de detalle de película (inactiva por defecto) -->
+  <section id="movieDetail" class="movieDetail-container inactive">
+    <!-- Información principal de la película -->
+    <h1 class="movieDetail-title">Deadpool</h1>
+    <span class="movieDetail-score">7.6</span>
+    <p class="movieDetail-description">
+      Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.
+    </p>
+
+    <!-- Categorías de la película -->
+    <article class="categories-list">
+      <div class="category-container">
+        <h3 id="id28" class="category-title">Romance</h3>
+      </div>
+
+      <div class="category-container">
+        <h3 id="id16" class="category-title">Drama</h3>
+      </div>
+
+      <div class="category-container">
+        <h3 id="id14" class="category-title">Acción</h3>
+      </div>
+    </article>
+
+    <!-- Películas relacionadas -->
+    <article class="relatedMovies-container">
+      <h2 class="relatedMovies-title">Películas similares</h2>
+
+      <!-- Contenedor desplazable de películas relacionadas -->
+      <div class="relatedMovies-scrollContainer">
+        <div class="movie-container">
+          <img
+            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+            class="movie-img"
+            alt="Nombre de la película"
+          />
+        </div>
+        
+        <div class="movie-container">
+          <img
+            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+            class="movie-img"
+            alt="Nombre de la película"
+          />
+        </div>
+        
+        <div class="movie-container">
+          <img
+            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+            class="movie-img"
+            alt="Nombre de la película"
+          />
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>Hecho con @crackmaster</footer>
+  
+  <!-- Scripts JavaScript -->
+  <script src="./src/secret.js"></script>  <!-- Archivo con credenciales/API keys -->
+  <script src="./src/main.js"></script>    <!-- Lógica principal de la aplicación -->
 </body>
 </html>

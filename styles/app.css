@@ -1,3 +1,439 @@
+/* ============================================= */
+/*                 ESTILOS GENERALES              */
+/* ============================================= */
+
+/* Reset box model para todos los elementos */
+* { box-sizing: border-box; }
+
+/* Variables CSS personalizadas */
+:root {
+  /* Paleta de colores morados */
+  --purple-light-1: #FBFAFB;
+  --purple-light-2: #EEEAF2;
+  --purple-medium-1: #AA83C8;
+  --purple-medium-2: #8B48BF;
+  --purple-medium-3: #5C218A;
+  --purple-dark-1: #3E0F64;
+  --purple-dark-2: #2A0646;
+
+  /* Colores adicionales */
+  --yellow: #EECC75;
+  --green: #CAD297;
+  --aqua: #B7EAC5;
+  --lightBlue: #A2EEE5;
+  --darkBlue: #8EA2EA;
+  --red: #F09D9D;
+
+  /* Tipografía */
+  --font-family-titles: 'Dosis', sans-serif;
+  --font-family-text: 'Red Hat Display', sans-serif;
+  --font-weight-title1: 800;  /* Extra bold para títulos principales */
+  --font-weight-title2: 700;  /* Bold para subtítulos */
+  --font-weight-text1: 400;  /* Regular para texto normal */
+  --font-weight-text2: 500;  /* Medium para texto destacado */
+}
+
+/* Estilos base para el documento HTML */
+html {
+  background-color: var(--purple-medium-3);
+}
+
+/* Estilos base para el cuerpo del documento */
 body {
-    background-color: red;
+  background-color: var(--purple-light-1);
+  color: var(--purple-dark-2);
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-text1);
+  font-size: 16px;
+  margin: 4px 0 0 0;
+  padding: 0;
+}
+
+/* Reset para encabezados */
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para títulos principales (h1) */
+h1 {
+  font-size: 24px;
+  color: var(--purple-dark-2);
+  font-family: var(--font-family-titles);
+  font-weight: var(--font-weight-title1);
+}
+
+/* Estilos para subtítulos (h2) */
+h2 {
+  font-size: 18px;
+  color: var(--purple-dark-1);
+  font-weight: var(--font-weight-title2);
+}
+
+/* Estilos para subtítulos secundarios (h3) */
+h3 {
+  color: var(--purple-dark-2);
+  font-weight: var(--font-weight-text2);
+  font-size: 16px;
+}
+
+/* Estilos para campos de entrada */
+input {
+  background-color: var(--purple-light-2);
+  color: var(--purple-medium-2);
+  border: none;
+  font-size: 18px;
+  padding-left: 16px;
+}
+
+/* Estilos para placeholder de inputs */
+input::placeholder {
+  color: var(--purple-medium-1);
+  font-family: var(--font-family-text);
+}
+
+/* Estilos base para botones */
+button {
+  background-color: var(--purple-dark-1);
+  border: none;
+  color: var(--purple-light-2);
+  font-weight: var(--font-weight-text2);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ============================================= */
+/*                ESTILOS COMPARTIDOS            */
+/* ============================================= */
+
+/* Padding común para contenedores de encabezado */
+.header-container, 
+.trendingPreview-header, 
+.categoriesPreview-container {
+  padding: 0 24px;
+}
+
+/* Margen superior común para secciones */
+.trendingPreview-container, 
+.categoriesPreview-container, 
+footer {
+  margin-top: 48px;
+}
+
+/* Margen inferior común para encabezados */
+.trendingPreview-header, 
+.categoriesPreview-title {
+  margin-bottom: 24px;
+}
+
+/* Estilos para contenedores de películas */
+.movie-container {
+  cursor: pointer;
+}
+
+/* Estilos para imágenes de películas */
+.movie-img {
+  border-radius: 8px;
+}
+
+/* Estilos para listas de categorías */
+.categoriesPreview-list, 
+.categories-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+/* ============================================= */
+/*                    HEADER                     */
+/* ============================================= */
+
+/* Padding superior adicional para header */
+.header-container {
+  padding-top: 40px;
+}
+
+/* Estilos para header largo (vista detalle) */
+.header-container--long {
+  background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), 
+              url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
+  background-size: cover !important;
+  height: 480px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Estilos para header en vista de categoría */
+.header-container--categoryView {
+  background: linear-gradient(180deg, rgba(238, 204, 117, 0.5) 0%, rgba(238, 204, 117, 0) 72.92%);
+} 
+
+/* Margen inferior para título del header */
+.header-title {
+  margin-bottom: 16px;
+}
+
+/* Estilos para flecha de navegación */
+.header-arrow {
+  font-weight: var(--font-weight-text2);
+  font-size: 36px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Variante blanca para flecha de navegación */
+.header-arrow--white {
+  color: var(--purple-light-1);
+}
+
+/* Estilos para formulario de búsqueda */
+.header-searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+/* Estilos para input de búsqueda */
+.header-searchForm input {
+  height: 48px;
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Estilos para botón de búsqueda */
+.header-searchForm button {
+  width: 56px;
+  height: 48px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* ============================================= */
+/*                   TRENDING                    */
+/* ============================================= */
+
+/* Estilos para encabezado de vista previa de tendencias */
+.trendingPreview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Estilos para botón de tendencias */
+.trendingPreview-btn {
+  border-radius: 8px;
+  height: 32px;
+  width: 72px;
+}
+
+/* Estilos para lista de películas en tendencias */
+.trendingPreview-movieList {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 241px;
+  padding-left: 24px;
+  padding-bottom: 16px;
+}
+
+/* Estilos para contenedores de películas en lista de tendencias */
+.trendingPreview-movieList .movie-container {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Estilos para imágenes en lista de tendencias */
+.trendingPreview-movieList .movie-container .movie-img {
+  height: 225px;
+  min-height: 225px;
+  max-height: 225px;
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+}
+
+/* ============================================= */
+/*                   CATEGORÍAS                  */
+/* ============================================= */
+
+/* Estilos para contenedores de categorías */
+.category-container {
+  width: 45%;
+}
+
+/* Estilos para títulos de categorías */
+.category-title {
+  margin-bottom: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pseudoelemento para marcador de categoría */
+.category-title::before {
+  content: '••••';
+  color: transparent;
+  /* TODO: cambiar color por ID de la categoría */
+  background-color: var(--idColor);
+  border-radius: 8px;
+  margin-right: 8px;
+  width: 8px;
+  height: 8px;
+}
+
+/* Asignación de colores por ID de categoría */
+#id28 { --idColor: var(--yellow); }
+#id12 { --idColor: var(--red); }
+#id16 { --idColor: var(--green); }
+#id35 { --idColor: var(--lightBlue); }
+#id80 { --idColor: var(--darkBlue); }
+#id99 { --idColor: var(--purple-dark-1); }
+#id18 { --idColor: var(--purple-medium-1); }
+#id10751 { --idColor: var(--yellow); }
+#id14 { --idColor: var(--red); }
+#id36 { --idColor: var(--green); }
+#id27 { --idColor: var(--lightBlue); }
+#id10402 { --idColor: var(--darkBlue); }
+#id9648 { --idColor: var(--purple-dark-1); }
+#id10749 { --idColor: var(--purple-medium-1); }
+#id878 { --idColor: var(--yellow); }
+#id10770 { --idColor: var(--red); }
+#id53 { --idColor: var(--green); }
+#id10752 { --idColor: var(--lightBlue); }
+#id37 { --idColor: var(--darkBlue); }
+
+/* ============================================= */
+/*            LISTA GENÉRICA (BÚSQUEDA)          */
+/* ============================================= */
+
+/* Estilos para contenedor de lista genérica */
+.genericList-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 32px 24px;
+}
+
+/* Estilos para contenedores de películas en lista genérica */
+.genericList-container .movie-container {
+  display: inline-block;
+  width: 47.5%;
+}
+
+/* Estilos para imágenes en lista genérica */
+.genericList-container .movie-img {
+  width: 100%;
+}
+
+/* ============================================= */
+/*                DETALLE DE PELÍCULA            */
+/* ============================================= */
+
+/* Contenedor principal de detalle de película */
+.movieDetail-container {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  padding: 32px 24px;
+  margin-top: 403px;
+  z-index: 1;
+  position: absolute;
+  background-color: var(--purple-light-1);
+}
+
+/* Título de la película en vista detalle */
+.movieDetail-title {
+  display: inline-block;
+  width: 80%;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+/* Puntuación de la película */
+.movieDetail-score {
+  display: inline-block;
+  text-align: right;
+  width: 18%;
+  font-weight: var(--font-weight-title2);
+}
+
+/* Estrella antes de la puntuación */
+.movieDetail-score::before {
+  content: '★';
+  color: var(--yellow);
+  padding-right: 4px;
+}
+
+/* Descripción de la película */
+.movieDetail-description {
+  margin: 0 0 24px 0;
+}
+
+/* Contenedor de películas relacionadas */
+.relatedMovies-container {
+  margin-top: 24px;
+  height: 216px;
+}
+
+/* Título de películas relacionadas */
+.relatedMovies-title {
+  margin-bottom: 16px;
+}
+
+/* Contenedor desplazable de películas relacionadas */
+.relatedMovies-scrollContainer {
+  position: absolute;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: calc(100vw - 24px);
+  padding-bottom: 16px;
+}
+
+/* Contenedores de películas en sección relacionadas */
+.relatedMovies-scrollContainer .movie-container {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+/* Imágenes de películas en sección relacionadas */
+.relatedMovies-scrollContainer .movie-img {
+  width: 125px;
+  min-width: 125px;
+  max-width: 125px;
+  height: 187.5px;
+  min-height: 187.5px;
+  max-height: 187.5px;
+}
+
+/* ============================================= */
+/*                     FOOTER                    */
+/* ============================================= */
+
+footer {
+  background-color: var(--purple-medium-3);
+  color: var(--purple-light-2);
+  text-align: center;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================================= */
+/*                 NAVEGACIÓN                    */
+/* ============================================= */
+
+/* Clase para ocultar elementos */
+.inactive {
+  display: none;
 }
